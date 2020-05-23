@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <title>QUIZ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <font face="Pacifico"></font>
+</head>
+<body>
+    <style>
+        *{margin: 0px;
+        padding: 0px;
+        text-decoration: none}
+        #div1{line-height: 50px;
+        width: 100%;
+        background-color: #343a40;
+        color: aquamarine;
+        font-family: "Pacifico";
+            text-align: center;
+           
+        }
+    #progress {
+    width: 100%;
+    height: 5px;
+    background-color:red;
+    transition: width .1s;
+}  
+        #q1{font-weight:bold;
+        font-size: 20px;}
+        #quesbox{
+            height: 300px;
+            width: 100%;
+            position: relative;
+            background-color: blanchedalmond
+        }
+        
+        #box1{line-height: 40px;
+        width: 200px;
+        background-color: lawngreen;
+        position: absolute;
+        top: 60px;
+            left: 60px;
+        box-shadow: 5px 5px 5px grey}
+        
+        #box2{line-height: 40px;
+        width: 200px;
+        background-color: lawngreen;
+        position: absolute;
+        top: 110px;
+        left: 60px;
+        box-shadow: 5px 5px 5px grey}
+        
+        #submit{height: 30px;
+        width: 150px;
+        background-color: lawngreen;
+        position:fixed;
+        left: 100px;
+        top: 500px;
+        box-shadow: 5px 5px 5px grey;
+        }
+        #myname{ position: fixed;
+            bottom: 0px;
+            width: 100%;
+        background-color: #343a40;
+        color: aquamarine;
+        font-family: "Pacifico";
+            text-align: center;
+           }
+    </style>
+    <div id="div1">QUIZ CHALLENGE</div>
+<div id="progress"></div>
+    <form id="quesbox"  onsubmit="return check()" action= "index2.html">
+    <p id="q1">1.Can we make static website using html?</p>
+    <div id="box1">
+    <input type="radio" id="o1" name="q1" value="yes">YES
+    </div>
+    <div id="box2">
+    <input type="radio" id="o2" name="q1" value="no">NO
+    </div>
+    <button id="submit"type="submit">SUBMIT ANSWER</button>
+    </form>
+       
+    <p id="myname">made by:-DIVYANSHU MISHRA</p>
+      
+</body> 
+<script>
+        
+        var percent = 100;
+        var speed = 100;
+        var tmr = setInterval(update, speed);
+        function update(){            document.getElementById("progress").style.width = percent--  + "%";
+            if(percent<-1) {
+                clearInterval(tmr);
+                alert("Time's up. You lost!");
+                document.getElementById("submit").disabled=true;
+            }
+        
+                       }
+        function check(){
+            var a = document.getElementById("o1");
+            var b = document.getElementById("o2");
+            if(a.checked==true){
+                alert("CORRECT!");
+                return true;}
+            else if(b.checked==true)
+                {alert("WRONG");
+                return false;}
+            
+        }  
+
+    
+
+            
+        </script>
+</html>
